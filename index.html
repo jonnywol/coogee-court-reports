@@ -248,18 +248,16 @@
   .nav-call:hover b{color:var(--teal-deep);}
 
   /* audience switch */
-  .audience-section{background:var(--surface);border-bottom:1px solid var(--line);padding-block:26px;}
-  .audience-intro{font-size:.82rem;color:var(--muted);text-align:center;margin:0 0 14px;}
-  .audience-switch{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+  .audience-section{margin:0 0 30px;}
+  .audience-intro{font-size:.82rem;color:#aecfcf;margin:0 0 12px;}
+  .audience-switch{display:flex;gap:10px;flex-wrap:wrap;}
   .aud-btn{
     font-family:inherit;font-weight:600;font-size:.95rem;
-    padding:.75em 1.7em;border-radius:999px;border:1.5px solid var(--line);
-    background:var(--bg);color:var(--body);cursor:pointer;transition:all .15s ease;
+    padding:.75em 1.7em;border-radius:999px;border:1.5px solid rgba(255,255,255,.35);
+    background:transparent;color:#eafbfb;cursor:pointer;transition:all .15s ease;
   }
-  .aud-btn:hover{border-color:var(--teal);color:var(--teal-deep);}
-  .aud-btn.active{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff;}
-  :root[data-theme="dark"] .aud-btn.active{background:var(--teal);border-color:var(--teal);color:#04302f;}
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .aud-btn.active{background:var(--teal);border-color:var(--teal);color:#04302f;} }
+  .aud-btn:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+  .aud-btn.active{background:#fff;border-color:#fff;color:#083f40;}
 
   /* audience visibility */
   main[data-audience="lawyer"] .client-only{display:none;}
@@ -551,6 +549,13 @@
 <main id="top" data-audience="lawyer">
   <section class="hero">
     <div class="wrap">
+      <div class="audience-section">
+        <p class="audience-intro">This page covers two audiences — pick the one that's you.</p>
+        <div class="audience-switch" role="tablist" aria-label="Choose your role">
+          <button type="button" class="aud-btn active" data-audience="lawyer" role="tab" aria-selected="true">I'm a lawyer</button>
+          <button type="button" class="aud-btn" data-audience="client" role="tab" aria-selected="false">I'm a client or family member</button>
+        </div>
+      </div>
       <div class="hero-kicker">Saul Gerber, Clinical Psychologist - Prompt, Detailed Reports</div>
       <div class="hero-grid lawyer-only">
         <div class="eyebrow">For NSW criminal &amp; defence lawyers</div>
@@ -579,16 +584,6 @@
           <div class="stat"><b>$2,000</b><span>standard report, cost upfront</span></div>
           <div class="stat"><b>1:1</b><span>confidential, non-judgmental assessment</span></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="audience-section">
-    <div class="wrap">
-      <p class="audience-intro">This page covers two audiences — pick the one that's you.</p>
-      <div class="audience-switch" role="tablist" aria-label="Choose your role">
-        <button type="button" class="aud-btn active" data-audience="lawyer" role="tab" aria-selected="true">I'm a lawyer</button>
-        <button type="button" class="aud-btn" data-audience="client" role="tab" aria-selected="false">I'm a client or family member</button>
       </div>
     </div>
   </section>
