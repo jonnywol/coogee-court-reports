@@ -869,9 +869,10 @@
         </div>
         <div class="contact-block">
           <form class="lead-form" id="lead-form">
-            <input type="hidden" name="_subject" value="New enquiry — Coogee Psychology Court Reports">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="access_key" value="d0c54d55-69dd-43d2-95da-c6f5792da00c">
+            <input type="hidden" name="subject" value="New enquiry — Coogee Psychology Court Reports">
+            <input type="hidden" name="from_name" value="Coogee Psychology Court Reports website">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
             <div class="lf-row">
               <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
               <input type="email" name="email" placeholder="Your email" autocomplete="email" required>
@@ -998,7 +999,7 @@
     status.hidden = true;
     status.className = 'lead-status';
 
-    fetch('https://formsubmit.co/ajax/saul@coogeepsychology.com', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(Object.fromEntries(new FormData(form)))
