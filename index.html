@@ -1004,7 +1004,8 @@
       body: JSON.stringify(Object.fromEntries(new FormData(form)))
     })
     .then(function(res){ if(!res.ok) throw new Error('Request failed'); return res.json(); })
-    .then(function(){
+    .then(function(data){
+      if(!data || String(data.success) !== 'true'){ throw new Error(data && data.message ? data.message : 'Not delivered'); }
       form.reset();
       status.textContent = 'Thanks — your enquiry has been sent. Saul will be in touch shortly.';
       status.classList.add('ok');
@@ -1013,7 +1014,7 @@
       submitBtn.disabled = false;
     })
     .catch(function(){
-      status.textContent = 'Something went wrong sending that — please call 0416 150 499 instead.';
+      status.innerHTML = 'Sorry — this form couldn\'t send your enquiry just now. Please call <a href="tel:0416150499" style="color:inherit;text-decoration:underline;">0416 150 499</a> or email <a href="mailto:saul@coogeepsychology.com" style="color:inherit;text-decoration:underline;">saul@coogeepsychology.com</a>.';
       status.classList.add('err');
       status.hidden = false;
       submitBtn.textContent = 'Send enquiry';
